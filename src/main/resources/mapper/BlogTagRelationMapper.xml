@@ -21,7 +21,7 @@
     select
     <include refid="Base_Column_List" />
     from tb_blog_tag_relation
-    where blog_id = #{blogId,jdbyType=BIGINT} and tag_id = #{tag,jdbcType=INTEGER} limit 1
+    where blog_id = #{blogId,jdbcType=BIGINT} and tag_id = #{tag,jdbcType=INTEGER} limit 1
   </select>
   <select id="selectDistinctTagIds" parameterType="java.lang.Long">
     select
@@ -41,7 +41,6 @@
     delete from tb_blog_tag_relation
     where blog_id = #{BlogId,jdbcType=BIGINT}
   </delete>
-
 
   <insert id="insert" parameterType="com.blog.entity.BlogTagRelation">
     insert into tb_blog_tag_relation (relation_id, blog_id, tag_id, 
@@ -81,7 +80,7 @@
     </trim>
   </insert>
   <insert id="batchInsert" parameterType="java.util.List">
-    insert into tb_blog_tag_relation (blog_id, tag_id)
+    insert into tb_blog_tag_relation(blog_id, tag_id)
     values
     <foreach collection="relationList" item="item" separator=",">
       (#{item.blogId,jdbcType=BIGINT}, #{item.tagId,jdbcType=INTEGER})

@@ -20,7 +20,7 @@
     select 
     <include refid="Base_Column_List" />
     from tb_link
-    where link_id = #{linkId,jdbcType=INTEGER}
+    where link_id = #{linkId,jdbcType=INTEGER} and is_deleted=0
   </select>
   <select id="findLinkList" parameterType="Map" resultMap="BaseResultMap">
     select
@@ -141,7 +141,7 @@
   </update>
   <update id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     update tb_link set is_deleted=1
-    where link_id = #{linkId,jdbcType=INTEGER and is_deleted=0}
+    where link_id = #{linkId,jdbcType=INTEGER} and is_deleted=0
   </update>
   <update id="deleteBatch">
     update tb_link

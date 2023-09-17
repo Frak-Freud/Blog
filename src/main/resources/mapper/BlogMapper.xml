@@ -54,9 +54,9 @@
       limit #{start}, #{limit}
     </if>
   </select>
-  <select id="getTotalBlogs" parameterType="Map" resultMap="int">
+  <select id="getTotalBlogs" parameterType="Map" resultType="int">
     select count(*) from tb_blog
-    where id_deleted=0
+    where is_deleted=0
     <if test="keyword!=null">
       and (blog_title like CONCAT('%',#{keyword},'%') or blog_category_name like CONCAT('%',#{keyword},'%'))
     </if>
@@ -84,14 +84,14 @@
     select
     <include refid="Base_Column_List"/>
     from tb_blog
-    where blog_id in (select blog)id from tb_blog_tag_relation where tag_id = #{tagId})
-    and blog_status=1 and is_deleted=0
+    where blog_id in (select blog)id from tb_blog_tag_relation
+    where tag_id = #{tagId}) and blog_status=1 and is_deleted=0
     order by blog_id desc
     <if test="start!=null and limit!=null">
       limit #{start}, #{limit}
     </if>
   </select>
-  <select id="getTotalBlogsByTagId" parameterType="Map" resultMap="int">
+  <select id="getTotalBlogsByTagId" parameterType="Map" resultType="int">
     select count(*)
     from tb_blog
     where blog_id in (select blog_id from ta_blog_tag_relation where tag_id = #{tagId})
@@ -307,6 +307,7 @@
     <foreach item="id" collection="ids" open="(" separator="," close=")">
       #{id}
     </foreach>
+    and is_deleted=0
   </update>
 
 </mapper>

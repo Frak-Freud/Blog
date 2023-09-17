@@ -1,7 +1,7 @@
 package com.blog.config;
 
 import com.blog.interceptor.AdminLoginInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -10,7 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Autowired
+    // @Autowired
+    @Resource
     private AdminLoginInterceptor adminLoginInterceptor;
 
     public void addInterceptors(InterceptorRegistry registry){
