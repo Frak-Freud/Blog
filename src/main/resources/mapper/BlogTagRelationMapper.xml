@@ -43,8 +43,7 @@
   </delete>
 
   <insert id="insert" parameterType="com.blog.entity.BlogTagRelation">
-    insert into tb_blog_tag_relation (relation_id, blog_id, tag_id, 
-      create_time)
+    insert into tb_blog_tag_relation (relation_id, blog_id, tag_id, create_time)
     values (#{relationId,jdbcType=BIGINT}, #{blogId,jdbcType=BIGINT}, #{tagId,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>

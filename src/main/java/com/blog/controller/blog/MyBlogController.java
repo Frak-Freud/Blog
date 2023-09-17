@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class BlogController {
+public class MyBlogController {
 
     // 主题字段：default、yummy-jekyll、amaze
     public static String theme = "amaze";

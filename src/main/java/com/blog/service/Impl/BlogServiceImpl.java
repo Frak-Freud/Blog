@@ -53,16 +53,15 @@ public class BlogServiceImpl implements BlogService {
         }
         // 处理标签数据
         String[] tags = blog.getBlogTags().split(",");
-        if (tags.length > 6) {
+        if (tags.length > 6)
             return "标签数量限制为6";
-        }
         // 保存文章
         if(blogMapper.insertSelective(blog) > 0){
             // 新增的tag对象
             List<BlogTag> tagListForInsert = new ArrayList<>();
             // 所有的tag对象，用于建立关系数据
             List<BlogTag> allTagsList = new ArrayList<>();
-            for (int i = 0; i < tags.length; i++) {
+            for (int i=0; i<tags.length; i++) {
                 BlogTag tag = tagMapper.selectByTagName(tags[i]);
                 if(tag == null){
                     // 不存在就新增
@@ -83,14 +82,14 @@ public class BlogServiceImpl implements BlogService {
             allTagsList.addAll(tagListForInsert);
             for (BlogTag tag:allTagsList){
                 BlogTagRelation blogTagRelation = new BlogTagRelation();
-                blogTagRelation.setRelationId(blog.getBlogId());
+                blogTagRelation.setBlogId(blog.getBlogId());
                 blogTagRelation.setTagId(tag.getTagId());
                 blogTagRelations.add(blogTagRelation);
             }
             if(blogTagRelationMapper.batchInsert(blogTagRelations) > 0)
                 return "success";
         }
-        return "修改失败";
+        return "保存失败";
     }
 
     @Override
