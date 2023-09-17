@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class PatternUtil {
     // 匹配邮箱正则
     private static final Pattern VALID_EMAIL_ADDRESS_REGX =
-            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9._]+\\[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9._]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     // 验证只包含中英文和数字的字符串
     public static Boolean validKeyword(String keyword){
