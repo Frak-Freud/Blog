@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
+// 博客管理
 @Controller
 @RequestMapping("/admin")
 public class BlogController {

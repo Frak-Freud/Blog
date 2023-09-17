@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+// 登录管理
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
