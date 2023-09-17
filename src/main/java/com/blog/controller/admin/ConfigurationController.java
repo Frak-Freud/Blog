@@ -66,9 +66,9 @@ public class ConfigurationController {
                           @RequestParam(value = "footerPoweredByURL", required = false) String footerPoweredByURL){
         int updateResult = 0;
         if (StringUtils.hasText(footerAbout))
-            updateResult += configService.updateConfig("websiteName", footerAbout);
+            updateResult += configService.updateConfig("footerAbout", footerAbout);
         if (StringUtils.hasText(footerICP))
-            updateResult += configService.updateConfig("websiteDescription", footerICP);
+            updateResult += configService.updateConfig("footerICP", footerICP);
         if (StringUtils.hasText(footerCopyright))
             updateResult += configService.updateConfig("footerCopyright", footerCopyright);
         if (StringUtils.hasText(footerPoweredBy))

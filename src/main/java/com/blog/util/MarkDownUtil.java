@@ -17,9 +17,8 @@ public class MarkDownUtil {
      * @return
      */
     public static String mdToHtml(String markdownString) {
-        if (!StringUtils.hasText(markdownString)) {
+        if (!StringUtils.hasText(markdownString))
             return "";
-        }
         java.util.List<Extension> extensions = Arrays.asList(TablesExtension.create());
         Parser parser = Parser.builder().extensions(extensions).build();
         Node document = parser.parse(markdownString);

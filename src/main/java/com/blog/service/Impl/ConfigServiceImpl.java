@@ -4,7 +4,6 @@ import com.blog.dao.BlogConfigMapper;
 import com.blog.entity.BlogConfig;
 import com.blog.service.ConfigService;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -19,19 +18,19 @@ public class ConfigServiceImpl implements ConfigService {
     @Resource
     private BlogConfigMapper configMapper;
 
-    public static final String websiteName = "personal blog";
-    public static final String websiteDescription = "personal blog是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建";
+    public static final String websiteName = "Blog Space";
+    public static final String websiteDescription = "A Simple Blog For Learning";
     public static final String websiteLogo = "/admin/dist/img/logo2.png";
     public static final String websiteIcon = "/admin/dist/img/favicon.png";
 
     public static final String yourAvatar = "/admin/dist/img/13.png";
-    public static final String yourEmail = "2449207463@qq.com";
-    public static final String yourName = "十三";
+    public static final String yourEmail = "2834213547@qq.com";
+    public static final String yourName = "Freud";
 
-    public static final String footerAbout = "your personal blog. have fun.";
+    public static final String footerAbout = "A Simple Blog";
     public static final String footerICP = "浙ICP备 xxxxxx-x号";
-    public static final String footerCopyRight = "@2018 十三";
-    public static final String footerPoweredBy = "personal blog";
+    public static final String footerCopyRight = "@2023 Freud";
+    public static final String footerPoweredBy = "Freud";
     public static final String footerPoweredByURL = "##";
 
     @Override
@@ -47,7 +46,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     @Override
     public Map<String, String> getAllConfigs() {
-        // 获取所有的map并封装为map
+        // 获取所有的String并封装为map
         List<BlogConfig> blogConfigs = configMapper.selectAll();
         Map<String, String> configMap = blogConfigs.stream()
                 .collect(Collectors.toMap(BlogConfig::getConfigName, BlogConfig::getConfigValue));

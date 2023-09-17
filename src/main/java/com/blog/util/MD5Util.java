@@ -1,7 +1,6 @@
 package com.blog.util;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MD5Util {
 
@@ -19,9 +18,8 @@ public class MD5Util {
 
     private static String byteArrayToHexString(byte b[]){
         StringBuffer resultSb = new StringBuffer();
-        for (byte value : b) {
+        for (byte value : b)
             resultSb.append(byteToHexString(value));
-        }
         return resultSb.toString();
     }
 

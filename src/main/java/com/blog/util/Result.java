@@ -18,12 +18,4 @@ public class Result<T> implements Serializable {
         this.message = message;
     }
 
-    @Override
-    public String toString() {
-        return "Result{" +
-                "resultCode=" + resultCode +
-                ", message='" + message + '\'' +
-                ", data=" + data +
-                '}';
-    }
 }

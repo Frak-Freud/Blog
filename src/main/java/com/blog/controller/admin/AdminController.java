@@ -33,7 +33,7 @@ public class AdminController {
         return "admin/login";
     }
 
-    @GetMapping({"", "/", "/index", "index.html"})
+    @GetMapping({"", "/", "/index", "/index.html"})
     public String index(HttpServletRequest request){
         request.setAttribute("path", "index");
         request.setAttribute("categoryCount", categoryService.getTotalCategories());
